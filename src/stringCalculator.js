@@ -9,9 +9,13 @@ class StringCalculator {
         }
 
         numbers = numbers.replace('\n', delimiter);
-        const nums = numbers.split(delimiter);
-        return nums.reduce((sum, num) => sum + parseInt(num), 0);
+        const nums = numbers.split(delimiter).map(num => parseInt(num));
+
+        const negatives = nums.filter(num => num < 0);
+        if (negatives.length > 0) {
+            throw new Error(`negative numbers not allowed: ${negatives.join(',')}`);
+        }
+
+        return nums.reduce((sum, num) => sum + num, 0);
     }
 }
-
-module.exports = StringCalculator;
