@@ -18,4 +18,9 @@ describe('String Calculator', () => {
         const calculator = new StringCalculator();
         expect(calculator.add('1,2,3,4')).to.equal(10);
     });
+    it('should handle new lines as delimiters', () => {
+        const calculator = new StringCalculator();
+        expect(calculator.add('1\n2,3')).to.equal(6);
+    });
+    
 });
