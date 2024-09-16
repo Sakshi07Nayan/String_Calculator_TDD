@@ -10,4 +10,8 @@ describe('String Calculator', () => {
         const calculator = new StringCalculator();
         expect(calculator.add('1')).to.equal(1);
     });
+    it('should return the sum of two numbers', () => {
+        const calculator = new StringCalculator();
+        expect(calculator.add('1,2')).to.equal(3);
+    });
 });
